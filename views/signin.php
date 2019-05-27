@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 	
 
-	<form method="post">
+	<form action="addUser" method="post">
 		<fieldset>
             <legend>Inscrivez-vous</legend>
 				<div class="form-row">

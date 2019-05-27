@@ -2,3 +2,40 @@ html
 {
 	background-color: #feefcc;
 }
+
+table
+{
+	border-width:1px; 
+	border-style:solid; 
+	border-color:black;
+	border-collapse: collapse;
+	width:100%;
+}
+
+tr
+{
+	border-width:2px; 
+	border-style:solid; 
+	border-color:black;
+	border-collapse: collapse;
+}
+
+td
+{
+	text-align: center;
+	vertical-align: middle;
+	border-width:2px; 
+	border-style:solid; 
+	border-color:black;
+	border-collapse: collapse;
+}
+
+th
+{
+	text-align: center;
+	vertical-align: middle;
+	border-width:3x; 
+	border-style:solid; 
+	border-color:black;
+	border-collapse: collapse;
+}

@@ -1,28 +1,26 @@
 <?php
 	require_once 'database.php';
-	//require_once 'role.php';
+	require_once 'role.php';
 	
 	class User {
-		public $id_user;
-		public $login;
-		public $password;
-		public $name;
-		public $surname;
-		public $adress;
-		public $mail;
-		public $role;
+		private $id_user;
+		private $login;
+		private $password;
+		private $name;
+		private $surname;
+		private $adress;
+		private $mail;
+		private $role;
+		
+		private $role_name;
 		
 		private $connection;
 		
 
-		public function __construct($data=null){
-        $this->connection = getDB();
-        if (is_array($data)) {
-            $this->login = $data['login'];
-            $this->password = $data['password'];
-        }
-        //if ($this->role_id) $this->role = Role::get(array('id' => $this->role_id));
-    }
+		public function __construct(){
+			
+		}
+	
 	
 		public static function getUser($loginParam){
 			$connection = getDB();
@@ -38,9 +36,42 @@
 				$data->setAdress($result['adress']);
 				$data->setMail($result['mail']);
 				$data->setRole($result['role']);
+				$data->setRole_Name();
 			}
 			return $data;
 		}
+		
+		
+		public static function getAll(){
+			$db = getDB();
+			$reponse = $db->query('SELECT * FROM USER');
+			$reponse->setFetchMode(PDO::FETCH_CLASS, 'User');
+			$donnees = $reponse->fetchAll();
+			$reponse->closeCursor(); 
+			return $donnees;
+		}
+		
+		
+		public function addUser($login,$password,$name,$surname,$adress,$mail,$role){
+			$db = getDB();
+			
+			$data = [
+				'login' => $login,
+				'password' => $password,
+				'name' => $name,
+				'surname' => $surname,
+				'adress' => $adress,
+				'mail' => $mail,
+				'role' => $role
+			];
+			
+			$query = "insert into `user`(login,password,name,surname,adress,mail,role) values
+			(:login, :password, :name, :surname, :adress, :mail, :role)";
+			
+			$response = $db->prepare($query);
+			$response->execute($data);
+		}
+		
 		
 		public function isPassword($password){
 			return password_verify($password,$this->password);      
@@ -71,13 +102,22 @@
 		}
 		
 		public function getAdress(){
-			return $this->Adress;
+			return $this->adress;
 		}
 		
 		public function getMail(){
 			return $this->mail;
 		}
 		
+		public function setRole_Name(){
+			$tmpRole = Role::get(array('id_role' => $this->role));
+			$this->role_name = $tmpRole->getName();
+		}
+		
+		public function getRole_Name(){
+			$this->setRole_Name();
+			return $this->role_name;
+		}
 		
 		public function setLogin($data){
 			$this->login = $data;
@@ -88,28 +128,30 @@
 		}
 		
 		public function setRole($data){
-			return $this->role = $data;
+			$this->role = $data;
 		}
 		
 		public function setId_user($data){
-			return $this->id_user = $data;
+			$this->id_user = $data;
 		}
 		
 		public function setName($data){
-			return $this->name = $data;
+			$this->name = $data;
 		}
 		
 		public function setSurname($data){
-			return $this->surname = $data;
+			$this->surname = $data;
 		}
 		
 		public function setAdress($data){
-			return $this->Adress = $data;
+			$this->Adress = $data;
 		}
 		
 		public function setMail($data){
-			return $this->mail = $data;
+			$this->mail = $data;
 		}
+		
+		
 	}
 ?>
 

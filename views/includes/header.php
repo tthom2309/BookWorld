@@ -24,8 +24,8 @@
 			}
 			else 
 			{
-				//echo '<h4 class="h4-log">'. $_SESSION['login'] . '</h4>';
-				echo "<a href=\"cart\"> <button type=\"button\" class=\"btn btn-warning\">My Cart</button> </a>";
+				
+				echo "<a href=\"cart\"> <button type=\"button\" class=\"btn btn-warning\">Mon panier</button> </a>";
 				echo "<a href=\"logout\"> <button type=\"button\" class=\"btn btn-dark\">Déconnexion</button> </a>";
 			}
 		?>

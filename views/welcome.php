@@ -42,11 +42,17 @@ while ($donnees = $reponse->fetch())
 	echo '<br>';
 	echo $donnees['mail'];
 	echo '<br>';
+	
 }
 $reponse->closeCursor();
+	
  
 	//$_SESSION['login']="Test";
 	echo $_SESSION['login'];
+	
+	
+	$res = password_hash('test',PASSWORD_DEFAULT);
+	echo $res;
 	?>
 
 <?php
