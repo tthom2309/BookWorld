@@ -21,7 +21,12 @@
 			echo '</td><td>';
 			echo $_SESSION['cart']['price'][$i];
 			echo '€</td><td>';
-			echo $i;
+			$bookTMP = book::get($_SESSION['cart']['isbnBook'][$i]);
+			echo '<a href="cartless?isbn='.$_SESSION['cart']['isbnBook'][$i].'"><button class="btn btn-primary">-</button></a> ';
+			if(!($bookTMP->getQuantity_Available()==$_SESSION['cart']['quantity'][$i])){
+				echo '<a href="cartmore?isbn='.$_SESSION['cart']['isbnBook'][$i].'"><button class="btn btn-primary">+</button></a>';
+			}
+			
 			echo '</td></tr>';
 			
 		}
@@ -29,7 +34,7 @@
 		echo priceCart();
 		echo '€</td></tr>';
 		echo '</table> ';
-		echo '<a href="newOrder"><button class="btn btn-success">Valider commande</button></a>   ';
+		echo '<a href="newOrder"><button class="btn btn-success">Valider commande</button></a>';
 		echo '<a href="cleanCart"><button class="btn btn-danger">Vider panier</button></a>';
 	}	
 ?>

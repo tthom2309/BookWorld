@@ -31,7 +31,7 @@
 				<td><?=$book->getPrice();?></td>
 				<td><?=$book->getQuantity_Available();?></td>
 				<td> <?php echo '<a href="modifybook?isbn='.$book->getIsbn().'"><button class="btn btn-info">Editer</button></a>';?></td>
-				<td> à faire</td>
+				<td> <a href="<?php echo 'removebook?isbn='.$book->getIsbn()?>"><button type="button" class="btn btn-danger">Supprimer</button></a></li></td>
 			</tr>
 			<?php endforeach ?>
 		</table>

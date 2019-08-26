@@ -29,23 +29,26 @@
 		}
 	}
 	
-	function removeFromCart($isbn){
-		$tmp=array();
-		$tmp['isbn'] = array();
-		$tmp['title'] = array();
-		$tmp['price'] = array();
-		$tmp['quantity'] = array();
-
+	function modifyQuantity($isbn,$qty){
 		for($i = 0; $i < count($_SESSION['cart']['isbnBook']); $i++){
-			if ($_SESSION['cart']['isbnBook'][$i] !== $isbn){
-				array_push( $tmp['isbn'],$_SESSION['cart']['isbnBook'][$i]);
-				array_push( $tmp['title'],$_SESSION['cart']['titleBook'][$i]);
-				array_push( $tmp['quantity'],$_SESSION['cart']['quantity'][$i]);
-				array_push( $tmp['price'],$_SESSION['cart']['price'][$i]);
+			if ($_SESSION['cart']['isbnBook'][$i] == $isbn){
+				$_SESSION['cart']['quantity'][$i] +=$qty;
+				if($_SESSION['cart']['quantity'][$i]==0){
+					removeFromCart($isbn);
+				}
 			}
-		}
-		$_SESSION['cart'] =  $tmp;
-		unset($tmp);
+		}	
+	}
+	
+	function removeFromCart($isbn){
+		for($i = 0; $i < count($_SESSION['cart']['isbnBook']); $i++){
+			if ($_SESSION['cart']['isbnBook'][$i] == $isbn){
+				\array_splice($_SESSION['cart']['isbnBook'],$i,1); 
+				\array_splice($_SESSION['cart']['titleBook'],$i,1); 
+				\array_splice($_SESSION['cart']['quantity'],$i,1); 
+				\array_splice($_SESSION['cart']['price'],$i,1); 
+			}
+		}	
 	}
 	
 	function priceCart(){
@@ -54,6 +57,13 @@
 			$total += $_SESSION['cart']['quantity'][$i] * $_SESSION['cart']['price'][$i];
 		}
 		return $total;
+	}
+	
+	function updateQuantityDB($i){
+		$bookTMP = book::get($_SESSION['cart']['isbnBook'][$i]);
+		$qtyTMP =$bookTMP->getQuantity_Available();
+		$qtyTMP -= $_SESSION['cart']['quantity'][$i];
+		book::updateQuantityAfterOrder($_SESSION['cart']['isbnBook'][$i],$qtyTMP);
 	}
 	
 	function clearCart(){

@@ -86,6 +86,29 @@
 			return $donnees;
 		}
 		
+		public static function updateToWorker($id){
+			$db = getDB();
+			$query = $db->prepare("update user set role=2 where id_user= :id");
+			$query->bindvalue(':id', $id);
+			$query->execute();
+			$query->closeCursor();
+		}
+		
+		public static function updateToAdmin($id){
+			$db = getDB();
+			$query = $db->prepare("update user set role=1 where id_user= :id");
+			$query->bindvalue(':id', $id);
+			$query->execute();
+			$query->closeCursor();
+		}
+		
+		public static function deleteUser($id){
+			$db = getDB();
+			$query = $db->prepare("delete from user where id_user= :id");
+			$query->bindvalue(':id', $id);
+			$query->execute();
+			$query->closeCursor();
+		}
 		
 		public static function addUser($login,$password,$name,$surname,$adress,$mail,$role){
 			$db = getDB();

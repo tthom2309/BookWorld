@@ -1,45 +1,30 @@
 <?php ob_start() ?>
-	
-	
-	<div id="wrapper">
-	<?php $i=1; ?>
+		
+
+	<h2>Liste des articles</h2>
+	<input class="form-control" id="searchBar" type="text" placeholder="Recherche par titre" >
+	<div class="card-deck">
+
 	<?php foreach($books as $book):?>	
-	
-	<?php 
-		if(($i%2)!=0){
-			echo "<div class=\"row \"><div class=\"col-sm-6\"> ";
-		}
-	?>
-		
-			<div class="card mb-3" style="width: 400px; height:302px;">
-				<div class="row no-gutters">
-					<div class="col-md-4">
-					<?php echo	'<img src="'.$book->getImage().'"  />'; 
+			<div class="col-auto p-2" id="cardbook" data-role="cardbook">
+			<div class="card h-100">
+				<?php echo '<img src="'.$book->getImage().'" class="card-img-top" >';
+				?>
+				<div class="card-body">
+					<?php echo '<h5 class="card-title">'.$book->getLabel().'</h5>';
+						echo '<p class="card-text">Author: '.$book->getAuthor_Name().'</p>';
 					?>
-					
-					</div>
-					<div class="col-md-8">
-						<div class="card-body">
-							<h6 class="card-title"><?=$book->getLabel();?></h6>
-							<br />
-							<p class="card-text">Author: <?=$book->getAuthor_Name();?></p>
-							<?php
-								echo '<a href="details?isbn='.$book->getIsbn().'"><button class="btn btn-info">Détails</button></a>';
-							?>
-						</div>
-					</div>
 				</div>
+			<div class="card-footer">
+				<?php
+					echo '<a href="details?isbn='.$book->getIsbn().'"><button class="btn btn-info " style="width: 95%;">Détails</button></a>';
+				?>
 			</div>
 			</div>
-	<?php 
-		if(($i%2)==0){
-			echo "</div>";
-		}
-		$i++;
-	?>		
-		
+			</div>
 	<?php endforeach ?>	
 	</div>
+	
 <?php
 	$title = 'BookWorld - Livres';
 	$content = ob_get_clean();

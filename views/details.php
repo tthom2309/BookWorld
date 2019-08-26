@@ -1,27 +1,18 @@
 <?php ob_start() ?>
 	<div>
-		<div class="row">
-			<table class="table table-sm">
-				<tr>
-					<td>Titre: </td><td><?=$book->getLabel();?></td>
-				</tr>
-				<tr>
-					<td>Auteur: </td><td><?=$book->getAuthor_Name();?></td>
-				</tr>
-				<tr>
-					<td>Categorie: </td><td><?=$book->getCategory_Label();?></td>
-				</tr>
-				<tr>
-					<td>Prix: </td><td><?=$book->getPrice();?>€</td>
-				</tr>
-				<tr>
-					<td>Editeur: </td><td><?=$book->getPublisher_Name();?></td>
-				</tr>
-				<tr>
-					<td>Isbn: </td><td><?=$book->getIsbn();?></td>
-				</tr>
-			</table>
-			<?php
+		<div id="left">
+			<img class="details" src="<?=$book->getImage();?>" />
+		</div>
+		<div id="right">
+			
+				<h3>Titre:<?=$book->getLabel();?></h3>
+				<h3>Auteur: <?=$book->getAuthor_Name();?></h3>
+				<h3>Categorie: <?=$book->getCategory_Label();?></h3>
+				<h3>Prix:<?=$book->getPrice();?>€</h3>
+				<h3>Editeur: <?=$book->getPublisher_Name();?></h3>
+				<h3>Isbn: <?=$book->getIsbn();?></h3>
+
+		<?php
 				if($book->getQuantity_Available()!=0 and !empty($_SESSION['login'])){
 					echo '<a href="addCart?isbn='.$book->getIsbn().'"><button class="btn btn-warning">Ajouter au panier</button></a>';
 					

@@ -46,6 +46,14 @@
 			$response->execute($data);
 		}
 		
+		public static function removeByID($id){
+			$db = getDB();
+			$query = $db->prepare("delete from book where isbn= :id");
+			$query->bindvalue(':id', $id);
+			$query->execute();
+			$query->closeCursor();
+		}
+		
 		public static function modify($isbn,$label,$author,$publisher,$category,$price,$quantity,$image,$synopsis){
 			$db = getDB();
 			$data = [
@@ -76,7 +84,15 @@
 			$reponse->closeCursor(); 
 			return $donnees;
 		}
-
+		
+		public static function updateQuantityAfterOrder($id, $quantity){
+			$db = getDB();
+			$query = $db->prepare("update book set quantity_available= :quantity where isbn= :id ");
+			$query->bindvalue(':quantity', $quantity);
+			$query->bindvalue(':id', $id);
+			$query->execute();
+			$query->closeCursor();
+		}
 		
 		public static function get($id) {
 			$db = getDB();

@@ -56,6 +56,21 @@ img
 	width: 190px;
 }
 
+#right
+{
+	float: right;
+}
+
+#left
+{
+	float:left
+}
+
+#left img{
+	height: 450px;
+	width: 285px;
+}
+
 #profileinfo
 {
 	margin: auto;
@@ -67,3 +82,13 @@ img
 	margin: auto;
 	width:700px;
 }
+
+
+.card
+{
+	display: inline-block;
+
+	width: 195px;
+	margin: auto;
+}
+

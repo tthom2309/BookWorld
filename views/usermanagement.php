@@ -28,8 +28,25 @@
 				<td><?=$user->getRole_Name();?></td>
 				<?php
 					if($_SESSION['role']==1){
-						echo "<td> à faire</td>";
-						echo "<td> à faire</td>";
+						if($user->getId_user()==1){
+							echo "<td> - </td>";
+							echo "<td> - </td>";
+						}
+						else
+						{
+							if(($user->getRole()==1)){
+								echo "<td> - </td>";
+							}
+							elseif($user->getRole()==2){
+								echo '<td><a href="updateToAdmin?id_user='.$user->getId_user().'"><button class="btn btn-info">Passer en admin</button></a></td>';
+							}
+							else
+							{
+								echo '<td><a href="updateToWorker?id_user='.$user->getId_user().'"><button class="btn btn-info">Passer en worker</button></a>';
+								echo '<a href="updateToAdmin?id_user='.$user->getId_user().'"><button class="btn btn-info">Passer en admin</button></a></td>';
+							}	
+							echo '<td><a href="deleteUser?id_user='.$user->getId_user().'"><button class="btn btn-danger">Supprimer</button></a></td>';
+						}
 					}
 				?>
 			</tr>
