@@ -2,7 +2,7 @@
 	<h3> Liste Utilisateurs</h3>
 	<a href="management"><button class="btn btn-info">Retour en arrière</button></a>
 	<div>
-		<table>
+		<table class="table table-striped">
 			<tr>
 				<th scope="col">id</th>
 				<th scope="col">Pseudo</th>

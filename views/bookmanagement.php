@@ -9,7 +9,7 @@
 	</div>
 	<br />
 	<div>
-		<table class="management">
+		<table class="table table-striped">
 			<tr class="management">
 				<th scope="col">isbn</th>
 				<th scope="col">Titre</th>
@@ -18,8 +18,8 @@
 				<th scope="col">Catégorie</th>
 				<th scope="col">Prix</th>
 				<th scope="col">Quantité</th>
-				<th scope=\"col\">Editer </th>
-				<th scope=\"col\">Supprimer </th>
+				<th scope="col">Editer </th>
+				<th scope="col">Supprimer </th>
 				
 			</tr>
 			<?php foreach($books as $book):?>
