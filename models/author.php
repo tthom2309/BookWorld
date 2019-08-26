@@ -18,6 +18,13 @@
 			return $donnees;
 		}
 
+		public static function add($name){
+			$db = getDB();
+			$query = $db->prepare("insert into author(name) values (:name)");
+			$query->bindvalue(':name', $name);
+			$query->execute();
+			$query->closeCursor();
+		}
 		
 		public static function get($values) {
 			$db = getDB();

@@ -33,6 +33,7 @@
 				Synopsis: <textarea class="form-control" id="synopsis" name="synopsis" > </textarea required>
 				<br />
 				<button type="submit" class="btn btn-success">Ajouter nouveau livre</button>
+				<a href="bookmanagement"><button class="btn btn-info">Retour en arrière</button></a>
 		</fieldset>
 	</form>
 <?php

@@ -25,6 +25,7 @@
 </script>
 
 <div id="myChart" style="width: 100%; height: 500px;"></div>
+<a href="management"><button class="btn btn-info">Retour en arrière</button></a>
 <?php
 	$title = 'BookWorld - Statistiques';
 	$content = ob_get_clean();

@@ -2,6 +2,7 @@
 ob_start() 
 ?>
 	<h1>Liste des commandes</h1>
+	<a href="management"><button class="btn btn-info">Retour en arrière</button></a>
 	<?php
 		$i=0;
 		foreach($orders as $order){

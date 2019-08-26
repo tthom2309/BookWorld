@@ -1,7 +1,6 @@
 <?php ob_start() ?>
 	
 	<h3>Bienvenue sur BookWorld, site de vente en ligne de livres en tout genre.</h3>
-	
 
 <?php
 	$title = 'BookWorld - Accueil';

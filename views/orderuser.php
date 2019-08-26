@@ -1,5 +1,6 @@
 <?php ob_start() ?>
 	<h2 class="text-center">Liste de mes commandes</h2>
+	<a href="profile"><button class="btn btn-info">Retour en arrière</button></a>
 	<?php
 		$i=0;
 		foreach($orders as $order){

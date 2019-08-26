@@ -1,5 +1,6 @@
 <?php ob_start() ?>
 	<h3> Liste Utilisateurs</h3>
+	<a href="management"><button class="btn btn-info">Retour en arrière</button></a>
 	<div>
 		<table>
 			<tr>

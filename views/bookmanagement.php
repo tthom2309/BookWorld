@@ -2,9 +2,10 @@
 	<h2 class="text-center"> Liste des Livres</h2>
 	<div id="buttonbox">
 		<a href="newbook"><button class="btn btn-info">Ajouter un livre</button></a>
-		<a href=""><button class="btn btn-info">Ajouter un auteur</button></a>
-		<a href=""><button class="btn btn-info">Ajouter un éditeur</button></a>
-		<a href=""><button class="btn btn-info">Ajouter une catégorie</button></a>
+		<a href="newauthor"><button class="btn btn-info">Ajouter un auteur</button></a>
+		<a href="newpublisher"><button class="btn btn-info">Ajouter un éditeur</button></a>
+		<a href="newcategory"><button class="btn btn-info">Ajouter une catégorie</button></a>
+		<a href="management"><button class="btn btn-info">Retour en arrière</button></a>
 	</div>
 	<br />
 	<div>
@@ -36,6 +37,7 @@
 			<?php endforeach ?>
 		</table>
 	</div>
+	
 <?php
 	$title = 'BookWorld - Gestion des livres';
 	$content = ob_get_clean();

@@ -8,11 +8,6 @@ body
 	background-color: #feefcc;
 }
 
-.collapse
-{
-	background-color: #fff2d1;
-}
-
 table
 {
 	border-width:1px; 
@@ -56,19 +51,58 @@ img
 	width: 190px;
 }
 
+#container-details
+{
+	border:1px solid black;
+	height: 460px;
+	width: 1000px;
+}
+
 #right
 {
-	float: right;
+	float: left;
+}
+
+#container-infos
+{
+	border:1px solid black;
+	padding: 15px;
+	margin-top: 10px;
+	margin-left: 10px;
 }
 
 #left
 {
-	float:left
+	float:left;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 
 #left img{
 	height: 450px;
 	width: 285px;
+}
+
+button
+{
+	margin: 3px;
+}
+
+#container-buttons
+{
+	float:left;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+#synopsis
+{
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	border:1px solid black;
+	width: 1000px;
 }
 
 #profileinfo
@@ -80,15 +114,24 @@ img
 #buttonbox
 {
 	margin: auto;
-	width:700px;
+	width:900px;
 }
 
 
 .card
 {
 	display: inline-block;
-
 	width: 195px;
 	margin: auto;
 }
 
+#footer{
+	background-color: #545454;
+	position: fixed;
+	height: 20px;
+	width: 100%;
+	text-align: center;
+	font-size: 15px;
+	left: 0;
+	bottom: 0;
+}

@@ -19,7 +19,6 @@
 		require $controller;
 	}
 	else {
-		echo $controller;
-		//include 'controllers/error.php';
+		include 'controllers/error.php';
 	}
 ?>

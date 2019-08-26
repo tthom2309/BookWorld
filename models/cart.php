@@ -66,6 +66,14 @@
 		book::updateQuantityAfterOrder($_SESSION['cart']['isbnBook'][$i],$qtyTMP);
 	}
 	
+	function bookinthecart(){
+		$count=0;
+		for($i = 0; $i < count($_SESSION['cart']['isbnBook']); $i++){
+			$count+=$_SESSION['cart']['quantity'][$i];
+		}
+		return $count; 		
+	}
+	
 	function clearCart(){
 		unset($_SESSION['cart']);
 	}

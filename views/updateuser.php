@@ -8,6 +8,7 @@
 				Adresse: <input type="text" class="form-control" id="adress" name="adress" value="<?php echo $userSESS->getAdress() ?>" placeholder="adress">
 				E-mail: <input type="text" class="form-control" id="email" name="email" value="<?php echo $userSESS->getMail() ?>" placeholder="email">
 				<br /><button type="submit" class="btn btn-success">Mettre à jour</button>
+				<a href="profile"><button class="btn btn-info">Retour en arrière</button></a>
 			</fieldset>
 		</form>
 	</div>

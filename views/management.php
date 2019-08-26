@@ -1,4 +1,5 @@
 <?php ob_start() ?>
+	<h1 class="text-center">Management</h1>
 	<div>
 		<a href="usermanagement" class="btn btn-info btn-lg btn-block active" role="button" aria-pressed="true">Utilisateurs</a>
 		<a href="ordermanagement" class="btn btn-info btn-lg btn-block active" role="button" aria-pressed="true">Commandes</a>
