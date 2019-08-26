@@ -12,6 +12,8 @@
 		private $category;
 		private $price;
 		private $quantity_available;
+		private $image;
+		private $synopsis;
 		
 		private $publisher_name;
 		private $author_name;
@@ -21,6 +23,49 @@
 		
 		public function __construct(){
 			
+		}
+		
+		public static function add($isbn,$label,$author,$publisher,$category,$price,$quantity,$image,$synopsis){
+			$db = getDB();
+			$data = [
+				'isbn' => $isbn,
+				'label' => $label,
+				'author' => $author,
+				'publisher' => $publisher,
+				'category' => $category,
+				'price' => $price,
+				'quantity' => $quantity,
+				'image' => $image,
+				'synopsis' => $synopsis 
+			];
+			
+			$query = "insert into book (isbn,label,publisher,author,category,price,synopsis,image,quantity_available) values
+			(:isbn, :label, :publisher, :author, :category, :price, :synopsis, :image, :quantity)";
+			
+			$response = $db->prepare($query);
+			$response->execute($data);
+		}
+		
+		public static function modify($isbn,$label,$author,$publisher,$category,$price,$quantity,$image,$synopsis){
+			$db = getDB();
+			$data = [
+				'isbn' => $isbn,
+				'label' => $label,
+				'author' => $author,
+				'publisher' => $publisher,
+				'category' => $category,
+				'price' => $price,
+				'quantity' => $quantity,
+				'image' => $image,
+				'synopsis' => $synopsis 
+			];
+			
+			$query = "update book set label= :label, author= :author, publisher= :publisher, category= :category, price= :price, quantity_available= :quantity,
+			image= :image, synopsis= :synopsis 
+			where isbn= :isbn";
+			
+			$response = $db->prepare($query);
+			$response->execute($data);
 		}
 		
 		public static function getAll(){
@@ -82,6 +127,14 @@
 		public function getPublisher_Name(){
 			$this->setPublisher_Name();
 			return $this->publisher_name;
+		}
+		
+		public function getImage(){
+			return $this->image;
+		}
+		
+		public function getSynopsis(){
+			return $this->synopsis;
 		}
 		
 		private function setAuthor_Name(){

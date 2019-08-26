@@ -1,5 +1,5 @@
-create database projetWeb;
-use projetWeb;
+create database bookworld;
+use bookworld;
 
 create table `role`(
 	id_role int(11),
@@ -45,6 +45,8 @@ create table `book`(
 	author int(11),
 	category int(11),
 	price float(5,2),
+	synopsis text,
+	image varchar(255),
 	quantity_available int(11),
 	primary key(isbn),
 	foreign key (publisher) references `publisher`(id_publisher),
@@ -120,7 +122,7 @@ DELIMITER ;
 
 insert into `role` values(1,'Admin'),(2,'Worker'),(3,'Customer');
 
-INSERT INTO `status` VALUES(1,'En cours'),(2,'En attente'),(3,'Validée'),(4,'Annulée');
+insert into `status` values(1,'En cours'),(2,'Validée'),(3,'Annulée');
 
 insert into `category`(name_cat) values('Science-fiction'),('Fantasy'),('Médiéval-fantasy'),
 ('Littérature classique'),('Sciences'),('Histoire'),('BD'),('Comics'),('Manga'),('Policier et thriller');
@@ -135,13 +137,13 @@ insert into `user`(login,password,name,surname,adress,mail,role) values
 ('EmployeTest','$2y$10$whPG2Gejtk5Hs7y6hPc0pOJ8o7/0UwPrbCOBo1En5qLOSZPeRvqS6','NomEmploye','PrenomEmploye','Rue fictive 22, 3000 VilleFictive','emailTest2@test.com',2),
 ('ClientTest','$2y$10$1eiB/v5uI9GKb/xmde0eFu6AqgYS/KmoJeM5tFZo5H.qaLjXQPfze','NomCustomer','PrenomCustomer','Rue fictive 32, 3000 VilleFictive','emailTest3@test.com',3);
 
-insert into `book` (isbn,label,publisher,author,category,price,quantity_available) values
-('978-2-07-036053-6','Fondation: Le cycle de Foncation, 1',1,1,1,7.25,27),
-('978-2-07-036055-0','Fondation et Empire: Le cycle de Fondation, 2',1,1,1,7.80,19 ),
-('978-2-290-00645-0','Une brève histoire du temps',2,5,5,6.10,37),
-('978-2-8112-1713-6','Les Nains: 1 - Le passage de pierre',6,4,3,8.20,12);
+insert into `book` (isbn,label,publisher,author,category,price,quantity_available,image) values
+('978-2-07-036053-6','Fondation: Le cycle de Fondation, 1',1,1,1,7.25,27,'images/978-2-07-036053-6.jpg'),
+('978-2-07-036055-0','Fondation et Empire: Le cycle de Fondation, 2',1,1,1,7.80,19,'images/978-2-07-036055-0.jpg'),
+('978-2-290-00645-0','Une brève histoire du temps',2,5,5,6.10,37,'images/978-2-290-00645-0.jpg'),
+('978-2-8112-1713-6','Les Nains: 1 - Le passage de pierre',6,4,3,8.20,12,'images/978-2-8112-1713-6.jpg');
 
-INSERT INTO `order`(`user`,`status`) VALUES (2,4),(3,4),(2,3),(3,2);
+insert into `order`(`user`,`status`) values (2,2),(3,3),(2,2),(3,1);
 insert into bookorder(num_order,book,price,quantity) values
 (1,'978-2-07-036053-6',7.25,1),(1,'978-2-07-036055-0',7.80,2),
 (2,'978-2-290-00645-0',6.20,1),

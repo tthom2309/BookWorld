@@ -1,6 +1,6 @@
 <?php
 	require 'models/user.php';
-	
+	require 'models/cart.php';
 	
 	if(!empty($_POST)){
 		if(!empty($_POST['login']) && !empty($_POST['password'])){
@@ -10,7 +10,7 @@
 				$_SESSION['login'] = $user->getLogin();
 				$_SESSION['role'] = $user->getRole(); 
 				$_SESSION['id_user'] = $user->getId_user();
-
+				createCart();
 				header('Location: welcome'); 
 			}
 			else

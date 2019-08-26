@@ -41,6 +41,41 @@
 			return $data;
 		}
 		
+		public static function getUserById($id){
+			$connection = getDB();
+			$response = $connection->prepare("SELECT * FROM user WHERE id_user = :id");
+			$response->execute(array(':id' => $id));
+			$data = new User();
+			while ($result= $response->fetch()){
+				$data->setId_user($result['id_user']);
+				$data->setLogin($result['login']);
+				$data->setPassword($result['password']);
+				$data->setName($result['name']);
+				$data->setSurname($result['surname']);
+				$data->setAdress($result['adress']);
+				$data->setMail($result['mail']);
+				$data->setRole($result['role']);
+				$data->setRole_Name();
+			}
+			return $data;
+		}
+		
+		public static function updateUser($id,$newname,$newfirstname,$newadress,$newmail){
+			$db = getDB();
+			
+			$data = [
+				'id' => $id,
+				'newname' => $newname,
+				'newfirstname' => $newfirstname,
+				'newadress' => $newadress,
+				'newmail' => $newmail
+			];
+			
+			$query ="update `user` set name= :newname, surname= :newfirstname, adress= :newadress, mail= :newmail
+			where id_user= :id";
+			$response = $db->prepare($query);
+			$response->execute($data);
+		}
 		
 		public static function getAll(){
 			$db = getDB();
@@ -52,7 +87,7 @@
 		}
 		
 		
-		public function addUser($login,$password,$name,$surname,$adress,$mail,$role){
+		public static function addUser($login,$password,$name,$surname,$adress,$mail,$role){
 			$db = getDB();
 			
 			$data = [
@@ -144,7 +179,7 @@
 		}
 		
 		public function setAdress($data){
-			$this->Adress = $data;
+			$this->adress = $data;
 		}
 		
 		public function setMail($data){

@@ -1,5 +1,12 @@
 <?php ob_start() ?>
-	<h3> Liste des Livres</h3>
+	<h2 class="text-center"> Liste des Livres</h2>
+	<div id="buttonbox">
+		<a href="newbook"><button class="btn btn-info">Ajouter un livre</button></a>
+		<a href=""><button class="btn btn-info">Ajouter un auteur</button></a>
+		<a href=""><button class="btn btn-info">Ajouter un éditeur</button></a>
+		<a href=""><button class="btn btn-info">Ajouter une catégorie</button></a>
+	</div>
+	<br />
 	<div>
 		<table class="management">
 			<tr class="management">
@@ -23,7 +30,7 @@
 				<td><?=$book->getCategory_Label();?></td>
 				<td><?=$book->getPrice();?></td>
 				<td><?=$book->getQuantity_Available();?></td>
-				<td> à faire</td>
+				<td> <?php echo '<a href="modifybook?isbn='.$book->getIsbn().'"><button class="btn btn-info">Editer</button></a>';?></td>
 				<td> à faire</td>
 			</tr>
 			<?php endforeach ?>

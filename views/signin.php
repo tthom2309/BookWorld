@@ -12,7 +12,7 @@
 					</div>
 					<div class="col-md-4 mb-3">
 						<label for="password">Mot de passe</label>
-						<input type="text" class="form-control" id="password" name="password"   required>
+						<input type="password" class="form-control" id="password" name="password"   required>
 					</div>
 				</div>
 				<div class="form-row">

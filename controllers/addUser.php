@@ -17,13 +17,13 @@
 		header('Location: welcome'); 
 	}catch(Exception $e){
 		if($e->getMessage()=="SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '".$_POST['login']."' for column 'ids1' at row 1"){
-			echo "<script>alert('Ce pseudo est déjà pris.')</script>";
+			echo '<div class="alert alert-danger" role="alert">Ce pseudo est déjà pris.</div>'; 
 		}
 		elseif($e->getMessage()=="SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '".$_POST['email']."' for column 'ids2' at row 1"){
-			echo "<script>alert('Cette adresse mail est déjà enregistrée.')</script>";
+			echo '<div class="alert alert-danger" role="alert">Cette adresse mail est déjà enregistrée.</div>';
 		}
 		else{
-			echo "<script>alert('".$e->getMessage()."')</script>";
+			echo '<div class="alert alert-danger" role="alert">'.$e->getMessage().'</div>';
 		}
 		
 	}

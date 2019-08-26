@@ -22,7 +22,7 @@
 				</tr>
 			</table>
 			<?php
-				if($book->getQuantity_Available()!=0 && !empty($_SESSION['login'])){
+				if($book->getQuantity_Available()!=0 and !empty($_SESSION['login'])){
 					echo '<a href="addCart?isbn='.$book->getIsbn().'"><button class="btn btn-warning">Ajouter au panier</button></a>';
 					
 				}

@@ -11,10 +11,12 @@
 		}
 	?>
 		
-			<div class="card mb-3" style="width: 400px; height:200px;">
+			<div class="card mb-3" style="width: 400px; height:302px;">
 				<div class="row no-gutters">
 					<div class="col-md-4">
-						<img src="..." class="card-img" alt="...">
+					<?php echo	'<img src="'.$book->getImage().'"  />'; 
+					?>
+					
 					</div>
 					<div class="col-md-8">
 						<div class="card-body">

@@ -10,6 +10,6 @@
     $user = User::getUser($_SESSION['login']);
 	$book = book::get($isbn);
 
-    Cart::add($user->getId_user(), $book->getIsbn());
+    addToCart($book->getIsbn(),$book->getLabel(),$book->getPrice(),1);
 	header('Location: listing'); 
 ?>

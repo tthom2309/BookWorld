@@ -1,6 +1,16 @@
-html
+body
 {
 	background-color: #feefcc;
+}
+
+.container
+{
+	background-color: #feefcc;
+}
+
+.collapse
+{
+	background-color: #fff2d1;
 }
 
 table
@@ -38,4 +48,22 @@ th
 	border-style:solid; 
 	border-color:black;
 	border-collapse: collapse;
+}
+
+img
+{
+	height: 300px;
+	width: 190px;
+}
+
+#profileinfo
+{
+	margin: auto;
+	width:400px;
+}
+
+#buttonbox
+{
+	margin: auto;
+	width:700px;
 }
