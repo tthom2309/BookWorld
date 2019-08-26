@@ -25,7 +25,7 @@ Projet développé avec "PHP Version 7.2.18" et "MySQL - 5.7.26"
 
 -mot de passe:employe
 
-#Customer:
+# Customer:
 -login:ClientTest
 
 -mot de passe:client
