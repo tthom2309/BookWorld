@@ -13,12 +13,15 @@ Projet développé avec "PHP Version 7.2.18" et "MySQL - 5.7.26"
 		"$db_pass": mot de passe pour la DB
 
 # Logs user de base (1 par role)
+
 -Admin: 
-	login:Admin
-	mot de passe:admin
+login:Admin
+mot de passe:admin
+
 -Employe: 
-	login:EmployeTest
-	mot de passe:employe
+login:EmployeTest
+mot de passe:employe
+
 -Customer:
-	login:ClientTest
-	mot de passe:client
+login:ClientTest
+mot de passe:client
